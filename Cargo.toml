@@ -1,0 +1,12 @@
+[package]
+name = "svtplay-dl-gui"
+version = "0.1.0"
+authors = ["Niklas <me@sodapop.se>"]
+
+[dependencies]
+sciter-rs = "0.5.44"
+scraper = "0.8.1"
+reqwest = "*"
+serde = "*"
+serde_derive = "*"
+serde_json = "*"

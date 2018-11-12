@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>svtplay-dl-gui</title>
+    <style></style>
+    <script type="text/tiscript">
+      var onProgress = function(p) {
+        $(#output).append(p)
+      }
+      var onDone = function(output) {
+        $(#output).append(output)
+      }
+      
+      $(button#start).on("click", function() {
+        view.start_download("https://www.svtplay.se/video/18454134/rapport/rapport-12-nov-12-00-1", onProgress, onDone);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>svtplay-dl-gui</h1>
+    <p>URL: <input #url /></p>
+    <p><button #start>Start</button></p>
+    <pre #output></pre>
+  </body>
+</html>
