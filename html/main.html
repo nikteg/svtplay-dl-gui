@@ -1,13 +1,33 @@
 <html>
   <head>
     <title>svtplay-dl-gui</title>
-    <style></style>
+    <style>
+      body {
+        flow:vertical;
+        width: *;
+        height: *;
+        margin: 10px;
+      }
+      p {
+      flow: horizontal;
+      width: *;
+      }
+      #url {
+      width: *;
+      }
+      #output {
+        width: *;
+        height: *;
+        background: black;
+        padding: 10px;
+      }
+    </style>
     <script type="text/tiscript">
       var onProgress = function(p) {
         $(#output).append(p)
       }
       var onDone = function(output) {
-        $(#output).append(output)
+        $(#output).append(output + "\n")
       }
       
       $(button#start).on("click", function() {
@@ -16,9 +36,8 @@
     </script>
   </head>
   <body>
-    <h1>svtplay-dl-gui</h1>
-    <p>URL: <input #url /></p>
-    <p><button #start>Start</button></p>
-    <pre #output></pre>
+    <h1>Enter URL and press start :)</h1>
+    <p><input type="text" novalue="https://www.svtplay.se/video/18454134/rapport/rapport-12-nov-12-00-1" value="" #url /><button #start>Start</button></p>
+    <pre #output>helo</pre>
   </body>
 </html>

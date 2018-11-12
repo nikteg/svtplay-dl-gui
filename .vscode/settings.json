@@ -4,5 +4,6 @@
     "*.html": "sciter-html",
     "*.htm": "sciter-html"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "code-runner.customCommand": "env DYLD_LIBRARY_PATH=$HOME/Downloads/sciter-sdk/bin.osx cargo run"
 }
