@@ -3,41 +3,50 @@
     <title>svtplay-dl-gui</title>
     <style>
       body {
-        flow:vertical;
+        flow: vertical;
         width: *;
         height: *;
         margin: 10px;
       }
-      p {
-      flow: horizontal;
-      width: *;
+      div {
+        flow: horizontal;
+        width: *;
+        height: 1.5em;
+      }
+      div > * {
+        margin-top: *;
+        margin-bottom: *;
       }
       #url {
-      width: *;
+        width: *;
+        display: inline-block;
+        margin-right: 10px;
+      }
+      button {
+        display: block;
+        width: max-content;
       }
       #output {
+        font-size: .75em;
+        color: white;
         width: *;
         height: *;
         background: black;
         padding: 10px;
+        overflow: auto;
       }
     </style>
-    <script type="text/tiscript">
-      var onProgress = function(p) {
-        $(#output).append(p)
-      }
-      var onDone = function(output) {
-        $(#output).append(output + "\n")
-      }
-      
-      $(button#start).on("click", function() {
-        view.start_download("https://www.svtplay.se/video/18454134/rapport/rapport-12-nov-12-00-1", onProgress, onDone);
-      });
-    </script>
+    <script type="text/tiscript" src="html/main.tis"></script>
   </head>
   <body>
-    <h1>Enter URL and press start :)</h1>
-    <p><input type="text" novalue="https://www.svtplay.se/video/18454134/rapport/rapport-12-nov-12-00-1" value="" #url /><button #start>Start</button></p>
-    <pre #output>helo</pre>
+    <div>
+      <input
+        type="text"
+        novalue="https://www.svtplay.se/video/18454134/rapport/rapport-12-nov-12-00-1"
+        value="https://www.tv4play.se/program/robinson/3957776"
+        #url
+      /><button #start>Start</button>
+    </div>
+    <pre #output>Ready to start...</pre>
   </body>
 </html>

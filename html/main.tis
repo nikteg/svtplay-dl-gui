@@ -1,0 +1,38 @@
+var length = 0;
+var max_length = 32;
+
+$(button#start).on("click", function() {
+  $(#output).html = "";
+  length = 0;
+
+  view.fetch_stream_info(
+    $(#url).value,
+    function(message) {
+      view.msgbox(#alert, message);
+    },
+    function(filename, url) {
+      var fn = view.selectFile(#save, "MP4 Files (*.mp4)|*.mp4|All Files (*.*)|*.*", "mp4", System.path(#USER_DOCUMENTS) + "/" + filename);
+      if (fn) {
+        view.download_stream(url, fn, function() {}, function(output) {
+          $(#output).$append(<span />).html = output + "\n";
+          if (length++ >= max_length) {
+            $(#output)[0].remove();
+          }
+          $(#output).scrollTo(0, 10000); // scroll to bottom
+        }, function() {
+          view.play_sound();
+          $(#output).$append(<span />).html = "\n\nDone!";
+          $(#output).scrollTo(0, 10000); // scroll to bottom
+        });
+      }
+    }
+  );
+});
+
+event keydown (evt) {
+  if (evt.shortcutKey && (evt.keyCode == Event.VK_Q)) {
+    view.close();
+
+    return true; // consume the event.
+  }  
+}
