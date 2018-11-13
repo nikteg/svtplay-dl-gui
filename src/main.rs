@@ -128,6 +128,6 @@ fn main() {
         .with_size((512, 512))
         .create();
     frame.event_handler(handler);
-    frame.load_file("html/main.html");
+    frame.load_html(include_bytes!("../html/main.html"), Some("html://main.htm"));
     frame.run_app();
 }
